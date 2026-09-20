@@ -13,15 +13,28 @@ def isBadVersion(n):
 
 
 class Solution:
-    def firstBadVersion(self, n: int) -> int:
+
+    def bruteForceFirstBadVersion(self, n: int) -> int:
+        for version in range(1, n + 1):
+            if isBadVersion(version):
+                return version
+        return -1  # This line should never be reached if there is at least one bad version
+
+        #complexity analysis for bruteForceFirstBadVersion: O(n) time complexity, O(1) space complexity
+        #space complexity is O(1) because we are not using any extra space, just a few variables for iteration.
+
+    def firstBadVersionBinary(self, n: int) -> int:
         left, right = 1, n
-        while left < right:
+        while left <= right:
             mid = left + (right - left) // 2
             if isBadVersion(n):
-                right = mid  # The first bad version is at mid or to the left of mid
+                right = mid - 1  # The first bad version is at mid or to the left of mid
             else:
                 left = mid + 1  # The first bad version is to the right of mid
         return left  # At the end of the loop, left == right and points to the first bad version
+
+        #complexity analysis for firstBadVersion: O(log n) time complexity, O(1) space complexity
+        #space complexity is O(1) because we are not using any extra space, just a few variables for iteration.
 
 
 

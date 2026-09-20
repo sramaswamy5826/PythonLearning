@@ -11,8 +11,8 @@ class Solution(object):
     def stringCompression(self, s):
 
         n = len(s)
-        if n == 0:
-            return 0
+        if n == 0: return 0
+        if n == 1: return 1
 
         write_index = 0
         read_index = 0
@@ -44,18 +44,23 @@ if __name__ == "__main__":
     # Test case 1
     chars1 = ["a", "a", "b", "b", "c", "c", "c"]
     new_length1 = solution.stringCompression(chars1)
-    print(chars1[:new_length1], "-> New length:", new_length1)  # Expected output: ["a", "2", "b", "2", "c", "3"] -> New length: 6
+    print(chars1[:new_length1], " original Length:", len(chars1), "-> New length:", new_length1)  # Expected output: ["a", "2", "b", "2", "c", "3"] -> New length: 6
 
     # Test case 2
     chars2 = ["a"]
     new_length2 = solution.stringCompression(chars2)
-    print(chars2[:new_length2], "-> New length:", new_length2)  # Expected output: ["a"] -> New length: 1
+    print(chars2[:new_length2], " original Length:", len(chars2), "-> New length:", new_length2)  # Expected output: ["a"] -> New length: 1
 
     # Test case 3
     chars3 = ["a", "b", "b", "b", "b", "b", "b", "b", "b", "b", "b"]
     new_length3 = solution.stringCompression(chars3)
-    print(chars3[:new_length3], "-> New length:", new_length3)  # Expected output: ["a", "b", "1", "0"] -> New length: 4
+    print(chars3[:new_length3], " original Length:", len(chars3), "-> New length:", new_length3)  # Expected output: ["a", "b", "1", "0"] -> New length: 4
 
+    #Test case 4
+    # character repeated more than 9 times.
+    chars4 = ["a"] * 12
+    new_length4 = solution.stringCompression(chars4)
+    print(chars4[:new_length4], " original Length:", len(chars4), "-> New length:", new_length4)  # Expected output: ["a", "1", "2"] -> New length: 3
 
 #Complexity analysis:
 # Time complexity: O(n), where n is the length of the input array chars.

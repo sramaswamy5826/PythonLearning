@@ -8,16 +8,17 @@ class Solution:
             return []
         #sort the intervals based on the start time
         intervals.sort(key=lambda x: x[0])
+        merged = [intervals[0]] #initialize with the first interval
 
-        merged = [intervals[0]]
         for current in intervals[1:]:
-            if current[0] <= merged[-1][1]:
+            if current[0] <= merged[-1][1]: #end value of last interval in merged list
+                # update the end value of last interval in merged list
                 merged[-1][1] = max(merged[-1][1], current[1])
             else:
                 merged.append(current)
         return merged
 
-    #Testcase to validate the solution
+#Testcase to validate the solution
 if __name__ == '__main__':
     solution = Solution()
     # Test case 1
@@ -35,6 +36,10 @@ if __name__ == '__main__':
     # Test case 4
     intervals4 = [[1,4],[0,0]]
     print(intervals4, "->", solution.merge(intervals4))  # Expected output: [[0,0],[1,4]]
+
+    # Test case 5
+    intervals5 = [[1,2],[4, 6], [7,10]]
+    print(intervals5, "->", solution.merge(intervals5))  # Expected output: [[1,2],[4,6],[7,10]]
 
     #Complexity analysis:
     # Time complexity: O(n log n), where n is the number of intervals.

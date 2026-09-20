@@ -35,6 +35,17 @@ class Solution:
                 right -= 1
         return None
 
-    #complexity analysis for twoSumBruteForce: O(n^2) time complexity, O(1) space complexity
+#Improved: using hash map to store the complement of each number and its index, allowing for O(n) time complexity. The brute force method checks all pairs of numbers, resulting in O(n^2) time complexity. The two-pointer method requires sorting the array first, leading to O(n log n) time complexity, but it uses O(n) space to store the original indices.
+    def twoSum(self, nums:List[int], target:int)->tuple[int,int]:
+        num_to_index = {}
+        for index, num in enumerate(nums):
+            complement = target - num
+            if complement in num_to_index:
+                return (num_to_index[complement], index)
+            num_to_index[num] = index
+        return None
+
+
+# #complexity analysis for twoSumBruteForce: O(n^2) time complexity, O(1) space complexity
     #complexity analysis for twoSum: O(n) time complexity, O(n) space complexity
     #complexity analysis for twoSumTwoPointer: O(nlogn) time complexity, O(n) space complexity
