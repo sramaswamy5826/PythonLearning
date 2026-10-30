@@ -1,0 +1,81 @@
+monotonic stack discussion
+1. building with ocean view
+2. HIstogram revisit
+
+Graph concept and problems
+Nodes, Edges, degree, Paths
+Cyclic vs Acyclic
+Connected vs Disconnected Graph
+Directed vs Undirected Graph
+Weighted vs Unweighted Graph
+
+Memory model
+-------------
+Adjacency Matrix
+- 2D array representation of a graph
+- For a graph with n nodes, create an n x n matrix
+- If there is an edge from node i to node j, set matrix[i][j]
+- If the graph is undirected, set matrix[j][i] as well
+- Space complexity: O(n^2)
+- Time complexity for checking if an edge exists: O(1)
+Adjacency List
+- Array of lists representation of a graph
+- For a graph with n nodes, create an array of size n
+- Each index of the array represents a node, and the list at that index contains the neighbors
+- Space complexity: O(n + e), where e is the number of edges
+- Time complexity for checking if an edge exists: O(k), where k is the number of neighbors of the node
+
+Traversal algorithms
+- Depth-First Search (DFS)
+  - Explores as far as possible along each branch before backtracking
+  - Can be implemented using recursion or a stack
+  - Time complexity: O(n + e), where n is the number of nodes and e is the number of edges
+  - Space complexity: O(n) for the recursion stack or O(n) for the explicit stack
+- Breadth-First Search (BFS)
+  - Explores all neighbors at the present depth prior to moving on to nodes at the next depth level
+  - Can be implemented using a queue(FIFO)
+  - Time complexity: O(n + e)
+  - Space complexity: O(n) for the queue
+
+Algorithms list for Graphs
+1.Topological Sort
+   - Orders the nodes in a directed acyclic graph (DAG) such that for every directed edge u -> v, node u comes before v in the ordering
+   - Can be implemented using DFS or Kahn's algorithm (BFS)
+   - Time complexity: O(n + e)
+   - Space complexity: O(n)
+
+2. Khan's Algorithm
+   - Finds the topological ordering of a directed acyclic graph (DAG)
+   - Uses a queue to process nodes with no incoming edges
+   - Time complexity: O(n + e)
+   - Space complexity: O(n)
+
+3. Dijkstra's Algorithm
+   - Finds the shortest path from a source node to all other nodes in a weighted graph
+   - Uses a priority queue to explore the closest unvisited node
+   - Time complexity: O((n + e) log n) with a binary heap
+   - Space complexity: O(n )
+
+4. Bellman-Ford Algorithm
+   - Finds the shortest path from a source node to all other nodes in a weighted graph,
+   - Can handle negative weight edges
+   - Time complexity: O(n * e)
+   - Space complexity: O(n)
+
+5. Floyd-Warshall Algorithm
+   - Finds shortest paths between all pairs of nodes in a weighted graph
+   - Time complexity: O(n^3)
+
+6. Prim's Algorithm
+   - Finds the minimum spanning tree (MST) of a weighted undirected graph
+   - Uses a priority queue to select the edge with the smallest weight that connects a visited node to an unvisited node
+   - Time complexity: O((n + e) log n) with a binary heap
+   - Space complexity: O(n)
+
+7. Kruskal's Algorithm
+   - Finds the minimum spanning tree (MST) of a weighted undirected graph
+   - Uses a disjoint-set (union-find) data structure to detect cycles
+   - Time complexity: O((n + e) log n) with a binary heap
+   - Space complexity: O(n)
+
+

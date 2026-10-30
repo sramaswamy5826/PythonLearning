@@ -1,0 +1,31 @@
+1. Queue
+double-ended queue (dequeue), circular queue, priority queue, and blocking queue are all different types of queues used in computer science and programming. Here is a brief explanation of each:
+
+2. Tree
+       BackTracking,Recursion
+what is the difference between Backtracking and recusion?
+Backtracking and recursion are both programming techniques used to solve problems, but they have different purposes and characteristics.
+Recursion is a technique where a function calls itself to solve a problem. It is often used to break down complex problems into simpler subproblems. Recursion can be used in various scenarios, such as traversing data structures (like trees and graphs), solving mathematical problems (like factorials and Fibonacci numbers), and implementing algorithms (like divide and conquer).
+Backtracking, on the other hand, is a specific algorithmic technique that uses recursion to explore all possible solutions to a problem and backtrack when a solution path does not lead to a valid solution. Backtracking is often used in constraint satisfaction problems, such as puzzles (like Sudoku), combinatorial problems (like generating permutations or combinations), and optimization problems (like the N-Queens problem). The key idea in backtracking is to build a solution incrementally and abandon a path as soon as it is determined that it cannot lead to a valid solution, allowing the algorithm to explore other potential paths.
+In summary, recursion is a general programming technique for solving problems by breaking them down into smaller subproblems, while backtracking is a specific algorithmic approach that uses recursion to explore all possible solutions and backtrack when necessary to find valid solutions.
+
+Memory Aspect of Recursion and Backtracking
+call stack Usage:
+Recursion: Linear O(N) relative to depth, but the stack size is limited by the maximum recursion depth, which can lead to stack overflow if the recursion goes too deep.
+Backtracking: Linear O(N) relative to depth, but stack rapidly grows and shrinks as the algorithm explores different paths, leading to potentially higher space usage in practice.
+
+state storage(heap):
+Recursion: Minimum
+Backtracking:HIGH
+
+MemoryLifespan:
+Recursion:Memory if freed immediately when branch finishes execution
+Backtracking: Memory persists globally or dynamically because variables are modified read, and reverted
+
+Space Complexity:
+Recursion: Bounded by depth of recursion, typically O(N) for linear recursion.
+backtracking: Bounded by depth for call stack, but requires extra space to store final list of valid solutions
+
+
+
+
